@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { useSyncExternalStore, type CSSProperties } from "react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 interface SafeWalletMultiButtonProps {
@@ -8,11 +8,11 @@ interface SafeWalletMultiButtonProps {
 }
 
 export function SafeWalletMultiButton({ style }: SafeWalletMultiButtonProps) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (
