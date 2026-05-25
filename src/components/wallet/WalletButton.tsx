@@ -29,18 +29,20 @@ export function WalletButton() {
   return (
     <SafeWalletMultiButton
       style={{
-        background: "var(--accent)",
-        color: "var(--accent-ink)",
-        borderRadius: "8px",
+        background: "rgba(21, 21, 29, 0.58)",
+        color: "var(--t1)",
+        borderRadius: "10px",
         fontSize: "13px",
         fontWeight: "600",
-        padding: "7px 12px",
-        height: "auto",
+        padding: "8px 13px",
+        height: "36px",
         lineHeight: "1.4",
         fontFamily: "var(--font-ui, inherit)",
-        border: "none",
+        border: "1px solid var(--border-strong)",
         letterSpacing: "-0.01em",
         gap: "8px",
+        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05), 0 0 18px rgba(43,244,154,0.08)",
+        backdropFilter: "blur(14px)",
       }}
     />
   );
