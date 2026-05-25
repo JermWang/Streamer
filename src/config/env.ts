@@ -28,7 +28,7 @@ export function getServerEnv() {
     ...getSupabaseEnv(),
     solanaRpcUrl: requireEnv("NEXT_PUBLIC_SOLANA_RPC_URL"),
     heliusApiKey: optionalEnv("HELIUS_API_KEY"),
-    platformAdminWallet: requireEnv("PLATFORM_ADMIN_WALLET"),
+    platformAdminWallet: optionalEnv("PLATFORM_ADMIN_WALLET") ?? "",
     pumpportalApiKey: optionalEnv("PUMPPORTAL_API_KEY"),
     kickClientId: optionalEnv("KICK_CLIENT_ID"),
     kickClientSecret: optionalEnv("KICK_CLIENT_SECRET"),
