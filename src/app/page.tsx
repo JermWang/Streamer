@@ -222,7 +222,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         creators={toLandingCreators(allCreators)}
         events={toLandingEvents(allCreators)}
         claimHref="#how-it-works"
-        featuredSlug="clavicular"
+        featuredSlug="adin-ross"
         stats={{
           totalCreators: allCreators.length,
           liveTokens: liveCount,
