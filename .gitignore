@@ -29,6 +29,22 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.next-start-*.log
+.next-start-*.err.log
+
+# local agent/tooling state
+.agents/
+.claude/
+.codex/
+.mcp.json
+skills-lock.json
+
+# local Supabase CLI cache
+supabase/.temp/
+
+# extracted/generated design reference artifacts
+design
+design_extracted/
 
 # env files (can opt-in for committing if needed)
 .env*
