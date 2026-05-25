@@ -68,6 +68,17 @@ function ArrowRightIcon() {
   );
 }
 
+function PumpFunLogo() {
+  return (
+    <span className="pump-logo" aria-label="Pump.fun">
+      <span className="pump-logo-mark" aria-hidden="true">
+        <span />
+      </span>
+      <span className="pump-logo-text">pump.fun</span>
+    </span>
+  );
+}
+
 function UsersIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -268,40 +279,45 @@ function HeroBroadcast({ creators, events, stats, claimHref }: LandingScreenProp
 
       <div className="hbx-grid">
         <div className="hbx-left">
+          <div className="hbx-platform-lockup">
+            <PumpFunLogo />
+            <span>community streamer onboarding layer</span>
+          </div>
           <div className="hbx-kicker">
             <span className="kicker-line" />
-            STREAMCOIN - LIVE BROADCAST
+            INDEPENDENT COMMUNITY HUB - BUILT AROUND PUMP.FUN STREAMING
           </div>
           <h1 className="hbx-title">
-            <span>Community</span> <span className="grad">streamer coins.</span>
+            <span>Pump.fun</span> <span className="grad">streamer coins.</span>
             <br />
-            <span>Claimable by the </span>
-            <span className="hbx-title-em">creators</span>
+            <span>Onboarded by the </span>
+            <span className="hbx-title-em">community</span>
             <span>.</span>
           </h1>
           <p className="hbx-sub">
-            Unofficial community tokens, indexed in one place. Creators verify identity,
-            take control of their page, and route fees where the underlying launch
-            provider supports it. No fake numbers. Disclaimers above the fold.
+            We are not trying to replace Pump.fun. Streamcoin is the community layer
+            focused on getting streamers into the Pump.fun economy: fans surface the
+            coins, raid the live channel, and push creators to claim supported fees
+            where the underlying launch provider allows it.
           </p>
 
           <div className="hbx-cta">
             <a className="btn btn-primary btn-lg" href="#dashboard">
-              Open dashboard <ArrowRightIcon />
+              Open onboarding board <ArrowRightIcon />
             </a>
             <a className="btn btn-secondary btn-lg" href={claimHref}>
-              Claim as creator
+              Claim Pump.fun fees
             </a>
           </div>
 
           <div className="hbx-kpis">
             <div className="hk">
               <div className="hk-v">{stats.totalCreators}</div>
-              <div className="hk-l">Creators tracked</div>
+              <div className="hk-l">Streamer pages</div>
             </div>
             <div className="hk">
               <div className="hk-v">{stats.liveTokens}</div>
-              <div className="hk-l">Live on Pump.fun</div>
+              <div className="hk-l">Pump.fun tokens</div>
             </div>
             <div className="hk">
               <div className="hk-v" style={{ color: "var(--accent)" }}>
@@ -313,7 +329,7 @@ function HeroBroadcast({ creators, events, stats, claimHref }: LandingScreenProp
               <div className="hk-v" style={{ color: "var(--cyan)" }}>
                 {stats.pendingClaims}
               </div>
-              <div className="hk-l">Claims in review</div>
+              <div className="hk-l">Onboarding claims</div>
             </div>
           </div>
         </div>
@@ -489,20 +505,21 @@ export function LandingScreen(props: LandingScreenProps) {
           <div className="p-icon" style={{ background: "var(--purple-soft)", color: "var(--purple)" }}>
             <UsersIcon />
           </div>
-          <div className="p-title">For communities</div>
+          <div className="p-title">For Pump.fun communities</div>
           <p>
-            Launch tokens named after streamers via Pump.fun. Indexed and surfaced here
-            with mandatory unofficial labeling until verified.
+            Surface streamer coins already launched on Pump.fun, organize raids,
+            and point creators to the fees and claim flow without pretending the
+            token is official.
           </p>
         </div>
         <div className="pillar">
           <div className="p-icon" style={{ background: "var(--accent-soft)", color: "var(--accent)" }}>
             <ShieldIcon />
           </div>
-          <div className="p-title">For creators</div>
+          <div className="p-title">For streamers</div>
           <p>
-            Verify your identity and take control. Route creator fees where supported,
-            dispute inaccurate tokens, or archive what is not yours.
+            Verify identity, understand the Pump.fun coin in your name, and route
+            creator fees where supported while keeping Twitch, Kick, and YouTube.
           </p>
         </div>
         <div className="pillar">
@@ -511,8 +528,8 @@ export function LandingScreen(props: LandingScreenProps) {
           </div>
           <div className="p-title">For everyone</div>
           <p>
-            No invented metrics. No official claims without proof. Every unverified page
-            keeps the community-token disclaimer visible.
+            Streamcoin stays community-first: no fake metrics, no replacement pitch,
+            no official claims without proof, and Pump.fun links stay front and center.
           </p>
         </div>
       </div>
@@ -520,14 +537,14 @@ export function LandingScreen(props: LandingScreenProps) {
       <div className="land-cta-strip">
         <div>
           <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 6 }}>
-            See what the community launched.
+            Help streamers find what Pump.fun communities launched.
           </div>
           <div style={{ fontSize: 13, color: "var(--t2)" }}>
-            {props.stats.totalCreators} creators tracked - honest metrics or none at all
+            {props.stats.totalCreators} streamer pages - Pump.fun links, claim routing, and honest data
           </div>
         </div>
         <a className="btn btn-primary btn-lg" href="#dashboard">
-          Open the dashboard <ArrowRightIcon />
+          Open onboarding board <ArrowRightIcon />
         </a>
       </div>
 
@@ -540,8 +557,8 @@ export function LandingScreen(props: LandingScreenProps) {
               <span className="brand-sub">.io</span>
             </div>
             <div style={{ fontSize: 11.5, color: "var(--t3)", maxWidth: 380, lineHeight: 1.6 }}>
-              Streamcoin is a community discovery platform. It does not issue, sell,
-              or endorse any token. Use of this platform does not constitute financial advice.
+              Streamcoin is an independent community onboarding hub for streamer
+              communities using Pump.fun. It does not issue, sell, or endorse any token.
             </div>
           </div>
           <div style={{ fontSize: 11.5, color: "var(--t3)", lineHeight: 1.8 }}>
