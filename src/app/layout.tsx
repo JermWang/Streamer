@@ -63,12 +63,8 @@ export const metadata: Metadata = {
     images: ["/streamer-logo.png"],
   },
   icons: {
-    icon: [
-      { url: "/streamer-nav-green-mark.png", type: "image/png" },
-    ],
-    apple: [
-      { url: "/streamer-logo.png", type: "image/png" },
-    ],
+    icon: "/icon.png",
+    apple: "/streamer-logo.png",
   },
 };
 
