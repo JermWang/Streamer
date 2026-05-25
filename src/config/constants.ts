@@ -1,6 +1,6 @@
-export const SITE_NAME = "StreamCoin";
+export const SITE_NAME = "Streamcoin";
 export const SITE_DESCRIPTION =
-  "Community streamer coins, claimable by the creators.";
+  "Your community already launched a coin in your name. Claim the fees and optionally add Pump.fun as another platform you stream to — no one leaves Twitch.";
 
 export const PUMP_FUN_BASE_URL = "https://pump.fun";
 export const PUMPPORTAL_API_BASE = "https://pumpportal.fun/api";

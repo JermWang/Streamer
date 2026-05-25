@@ -1,5 +1,6 @@
 export const dynamic = "force-dynamic";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -110,6 +111,38 @@ function DetailRow({
       <strong className={mono ? "mono" : undefined}>{value}</strong>
     </div>
   );
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const creator = await getCreatorData(slug);
+  if (!creator) return {};
+
+  const token = creator.community_tokens?.[0] ?? null;
+  const ticker = token?.ticker ?? slug.toUpperCase();
+  const handle = creator.primary_handle ?? `@${slug}`;
+  const isVerified =
+    creator.status === "CREATOR_VERIFIED" || creator.status === "OFFICIAL_PARTNER";
+  const status = isVerified ? "Verified creator" : "Unofficial community token";
+  const title = `$${ticker} — ${creator.name} community coin`;
+  const description = `${status}. The ${creator.name} (${handle}) community launched $${ticker} on Solana via Pump.fun. ${isVerified ? "Creator has claimed this page." : "Creator has not yet claimed this token."}`;
+  const image = creator.avatar_url ?? token?.image_url ?? "/streamer-logo.png";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: image, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
 }
 
 export default async function CreatorPage({ params }: PageProps) {

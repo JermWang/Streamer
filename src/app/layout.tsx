@@ -20,9 +20,56 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://streamcoin.fun";
+
 export const metadata: Metadata = {
-  title: "$STREAMER",
+  title: {
+    default: "$STREAMER — Community Streamer Coins on Solana",
+    template: "%s | $STREAMER",
+  },
   description: SITE_DESCRIPTION,
+  metadataBase: new URL(siteUrl),
+  keywords: [
+    "streamer coin",
+    "pump.fun",
+    "solana",
+    "community token",
+    "streamer crypto",
+    "twitch coin",
+    "kick coin",
+    "creator token",
+    "$STREAMER",
+  ],
+  authors: [{ name: "Streamcoin" }],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Streamcoin",
+    title: "$STREAMER — Community Streamer Coins on Solana",
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/streamer-logo.png",
+        width: 1254,
+        height: 1254,
+        alt: "$STREAMER — Community Streamer Coins on Solana",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "$STREAMER — Community Streamer Coins on Solana",
+    description: SITE_DESCRIPTION,
+    images: ["/streamer-logo.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/streamer-nav-green-mark.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/streamer-logo.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
