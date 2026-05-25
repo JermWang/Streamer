@@ -1086,6 +1086,14 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   background: var(--panel);
   border: 1px solid var(--border-strong);
   border-radius: var(--r-lg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.stream-panel-live {
+  border-color: rgba(255, 60, 60, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 60, 60, 0.12), 0 0 32px rgba(255, 60, 60, 0.08);
+}
+.stream-panel-live .stream-panel-head {
+  background: rgba(255, 40, 40, 0.06);
 }
 .stream-panel-head {
   display: flex;
