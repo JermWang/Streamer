@@ -1066,6 +1066,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
 .stream-raid-copy strong {
   color: var(--accent);
 }
+.stream-note {
+  display: block;
+  margin-top: 6px;
+  color: var(--t4);
+  font-size: 11.5px;
+}
 .token-control-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

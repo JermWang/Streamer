@@ -25,6 +25,35 @@ function channelFromUrl(platformUrl: string | null, fallbackHandle: string | nul
   }
 }
 
+const YOUTUBE_CHANNEL_IDS: Record<string, string> = {
+  ishowspeed: "UCWsDFcIhY2DBi3GB5uykGXA",
+};
+
+function youtubeChannelIdFromUrl(platformUrl: string | null, fallbackHandle: string | null) {
+  const fallback = cleanHandle(fallbackHandle).toLowerCase();
+
+  if (platformUrl) {
+    try {
+      const url = new URL(platformUrl);
+      const parts = url.pathname.split("/").filter(Boolean);
+      const channelIndex = parts.findIndex((part) => part.toLowerCase() === "channel");
+      if (channelIndex >= 0 && parts[channelIndex + 1]) {
+        return parts[channelIndex + 1];
+      }
+
+      const handlePart = parts.find((part) => part.startsWith("@"));
+      if (handlePart) {
+        const key = handlePart.replace(/^@/, "").toLowerCase();
+        if (YOUTUBE_CHANNEL_IDS[key]) return YOUTUBE_CHANNEL_IDS[key];
+      }
+    } catch {
+      // Fall back to the primary handle mapping below.
+    }
+  }
+
+  return YOUTUBE_CHANNEL_IDS[fallback] ?? null;
+}
+
 export function StreamEmbed({
   platform,
   platformUrl,
@@ -41,11 +70,14 @@ export function StreamEmbed({
     () => channelFromUrl(platformUrl, handle),
     [platformUrl, handle]
   );
+  const youtubeChannelId = useMemo(
+    () => youtubeChannelIdFromUrl(platformUrl, handle),
+    [platformUrl, handle]
+  );
 
   const embedUrl = useMemo(() => {
-    if (!channel) return null;
-
     if (normalizedPlatform === "TWITCH") {
+      if (!channel) return null;
       if (!host) return null;
       return `https://player.twitch.tv/?channel=${encodeURIComponent(
         channel
@@ -53,18 +85,28 @@ export function StreamEmbed({
     }
 
     if (normalizedPlatform === "KICK") {
+      if (!channel) return null;
       return `https://player.kick.com/${encodeURIComponent(channel)}?autoplay=false&muted=true`;
     }
 
+    if (normalizedPlatform === "YOUTUBE") {
+      if (!youtubeChannelId) return null;
+      return `https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(
+        youtubeChannelId
+      )}&autoplay=0&mute=1`;
+    }
+
     return null;
-  }, [channel, host, normalizedPlatform]);
+  }, [channel, host, normalizedPlatform, youtubeChannelId]);
 
   const label =
     normalizedPlatform === "TWITCH"
       ? "Twitch"
       : normalizedPlatform === "KICK"
         ? "Kick"
-        : platform ?? "stream";
+        : normalizedPlatform === "YOUTUBE"
+          ? "YouTube"
+          : platform ?? "stream";
 
   return (
     <div className="stream-panel">
@@ -100,8 +142,8 @@ export function StreamEmbed({
           <div className="stream-empty">
             <div className="stream-empty-title">No embeddable stream configured</div>
             <div>
-              Add a Twitch or Kick channel URL in the creator admin record to show
-              the live player here.
+              Add a Twitch, Kick, or YouTube channel URL in the creator admin record
+              to show the live player here.
             </div>
           </div>
         )}
@@ -110,6 +152,10 @@ export function StreamEmbed({
       <div className="stream-raid-copy">
         <strong>Raid script:</strong> Go say the community already built the coin.
         Ask {creatorName} to claim the Pump.fun fees and take control of the page.
+        <span className="stream-note">
+          If the creator is offline, the embedded platform player may show its own
+          offline or unavailable state.
+        </span>
       </div>
     </div>
   );
