@@ -195,8 +195,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   background: transparent;
 }
 .brand-logo-nav {
-  width: 76px;
-  height: 58px;
+  width: 52px;
+  height: 38px;
 }
 .brand-logo-footer {
   width: 132px;
@@ -210,10 +210,10 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   display: block;
 }
 .brand-logo-nav img {
-  width: 76px;
-  height: 76px;
-  max-width: none;
-  transform: translateY(-10px);
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  transform: none;
 }
 .brand-mark {
   width: 22px; height: 22px;
