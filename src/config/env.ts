@@ -30,6 +30,8 @@ export function getServerEnv() {
     heliusApiKey: optionalEnv("HELIUS_API_KEY"),
     platformAdminWallet: requireEnv("PLATFORM_ADMIN_WALLET"),
     pumpportalApiKey: optionalEnv("PUMPPORTAL_API_KEY"),
+    kickClientId: optionalEnv("KICK_CLIENT_ID"),
+    kickClientSecret: optionalEnv("KICK_CLIENT_SECRET"),
     ...getSiteEnv(),
   };
 }
