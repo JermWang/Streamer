@@ -1736,7 +1736,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   .token-card, .m-card, .pillar, .module, .chart-card, .claim-card, .claim-cta,
   .live-feed, .profile-hero, .land-kpis, .land-cta-strip, .land-ticker,
   .table-wrap, .btn-primary, .btn-secondary, .btn-destructive,
-  .nav-tab, .chip-filter, .radio-card, .sb-item, .feed-item, .code-box, .stepper, .disclaimer
+  .chip-filter, .radio-card, .sb-item, .feed-item, .code-box, .stepper, .disclaimer
 )::after {
   content: "";
   position: absolute;
@@ -1767,7 +1767,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   .token-card, .m-card, .pillar, .module, .chart-card, .claim-card, .claim-cta,
   .live-feed, .profile-hero, .land-kpis, .land-cta-strip, .land-ticker,
   .table-wrap, .btn-primary, .btn-secondary, .btn-destructive,
-  .nav-tab, .chip-filter, .radio-card, .sb-item, .feed-item, .code-box, .stepper, .disclaimer
+  .chip-filter, .radio-card, .sb-item, .feed-item, .code-box, .stepper, .disclaimer
 ):hover::after {
   opacity: 1;
   animation: tron-spin 1.5s linear infinite;
@@ -1776,7 +1776,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
 .btn-destructive { --tron-color: var(--red); }
 .disclaimer      { --tron-color: var(--amber); --tron-thickness: 1px; }
 .feed-item       { --tron-thickness: 1px; }
-.nav-tab         { --tron-thickness: 1px; }
 .chip-filter     { --tron-thickness: 1px; }
 .sb-item         { --tron-thickness: 1px; }
 .btn-primary     { --tron-color: #fff; }
@@ -1786,7 +1785,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   :is(.token-card, .m-card, .pillar, .module, .chart-card, .claim-card, .claim-cta,
       .live-feed, .profile-hero, .land-kpis, .land-cta-strip, .land-ticker,
       .table-wrap, .btn-primary, .btn-secondary, .btn-destructive,
-      .nav-tab, .chip-filter, .radio-card, .sb-item, .feed-item,
+      .chip-filter, .radio-card, .sb-item, .feed-item,
       .code-box, .stepper, .disclaimer):hover::after {
     animation: none;
     opacity: 0.4;
