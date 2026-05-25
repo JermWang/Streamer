@@ -187,8 +187,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   color: inherit;
 }
 .brand-logo {
-  width: 40px;
-  height: 34px;
   border-radius: 0;
   overflow: visible;
   display: grid;
@@ -196,13 +194,26 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
   flex-shrink: 0;
   background: transparent;
 }
+.brand-logo-nav {
+  width: 76px;
+  height: 58px;
+}
+.brand-logo-footer {
+  width: 132px;
+  height: 132px;
+}
 .brand-logo img {
   width: 100%;
   height: 100%;
   max-width: 100%;
   object-fit: contain;
   display: block;
-  transform: translateY(-1px);
+}
+.brand-logo-nav img {
+  width: 76px;
+  height: 76px;
+  max-width: none;
+  transform: translateY(-10px);
 }
 .brand-mark {
   width: 22px; height: 22px;

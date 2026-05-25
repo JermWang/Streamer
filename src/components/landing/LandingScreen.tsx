@@ -552,8 +552,8 @@ export function LandingScreen(props: LandingScreenProps) {
         <div className="land-footer-inner">
           <div>
             <div className="brand" style={{ marginBottom: 8 }}>
-              <span className="brand-logo">
-                <img src="/streamer-logo-black-background.png?v=1" alt="$STREAMER" />
+              <span className="brand-logo brand-logo-footer">
+                <img src="/streamer-logo.png?v=3" alt="$STREAMER" />
               </span>
             </div>
             <div style={{ fontSize: 11.5, color: "var(--t3)", maxWidth: 380, lineHeight: 1.6 }}>
