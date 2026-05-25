@@ -44,7 +44,7 @@ export default function RootLayout({
               <div className="topnav-inner">
                 <Link href="/" className="brand">
                   <span className="brand-logo">
-                    <img src="/streamer-nav-logo.png?v=3" alt="$STREAMER" />
+                    <img src="/streamer-logo-black-background.png?v=1" alt="$STREAMER" />
                   </span>
                 </Link>
 
