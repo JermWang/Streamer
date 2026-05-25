@@ -49,7 +49,7 @@ const SEED_CREATORS = [
     primary_handle: "IShowSpeed",
     platform: "YOUTUBE",
     platform_url: "https://youtube.com/@ishowspeed",
-    avatar_url: "https://unavatar.io/twitter/IShowSpeed",
+    avatar_url: "https://yt3.googleusercontent.com/ieK0j0sDqI_AHDwYxZ2Wly07-R7PG4S3YMtxOWCEe1QH-I0FgimJ92tlydQa6M78YD0VaywCaw=s900-c-k-c0x00ffffff-no-rj",
     bio: "High-energy YouTube streamer and content creator.",
     token: {
       name: "IShowSpeed Community Coin",
