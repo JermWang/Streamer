@@ -34,6 +34,7 @@ interface LandingScreenProps {
     pendingClaims: number;
   };
   claimHref: string;
+  featuredSlug?: string;
 }
 
 function useRecTimer() {
@@ -237,11 +238,18 @@ function MiniEventLog({ events }: { events: LandingEvent[] }) {
   );
 }
 
-function HeroBroadcast({ creators, events, stats, claimHref }: LandingScreenProps) {
+function HeroBroadcast({ creators, events, stats, claimHref, featuredSlug }: LandingScreenProps) {
   const rec = useRecTimer();
+  const pinnedCreator = useMemo(
+    () => (featuredSlug ? creators.find((c) => c.slug === featuredSlug) : undefined),
+    [creators, featuredSlug]
+  );
   const featuredPool = useMemo(
-    () => creators.filter((creator) => creator.hasMint && creator.tokenStatus !== "ARCHIVED"),
-    [creators]
+    () => {
+      if (pinnedCreator) return [pinnedCreator];
+      return creators.filter((creator) => creator.hasMint && creator.tokenStatus !== "ARCHIVED");
+    },
+    [creators, pinnedCreator]
   );
   const [featuredIndex, setFeaturedIndex] = useState(0);
 
@@ -445,7 +453,14 @@ function MarqueeCard({ creator }: { creator: LandingCreator }) {
 }
 
 export function LandingScreen(props: LandingScreenProps) {
-  const marqueeCreators = props.creators.filter((creator) => creator.tokenStatus !== "ARCHIVED");
+  // Sort so the featured creator appears first in the marquee too
+  const sortedCreators = useMemo(() => {
+    if (!props.featuredSlug) return props.creators;
+    const pinned = props.creators.find((c) => c.slug === props.featuredSlug);
+    if (!pinned) return props.creators;
+    return [pinned, ...props.creators.filter((c) => c.slug !== props.featuredSlug)];
+  }, [props.creators, props.featuredSlug]);
+  const marqueeCreators = sortedCreators.filter((creator) => creator.tokenStatus !== "ARCHIVED");
   const repeatedCreators = [...marqueeCreators, ...marqueeCreators, ...marqueeCreators];
   const tickerEvents =
     props.events.length > 0
@@ -461,7 +476,7 @@ export function LandingScreen(props: LandingScreenProps) {
       </div>
       <div className="land-rays" aria-hidden="true" />
 
-      <HeroBroadcast {...props} />
+      <HeroBroadcast {...props} creators={sortedCreators} />
 
       {repeatedCreators.length > 0 && (
         <div className="land-marquee">
