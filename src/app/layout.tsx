@@ -4,7 +4,7 @@ import "./globals.css";
 import { WalletProvider } from "@/components/wallet/WalletProvider";
 import { WalletButton } from "@/components/wallet/WalletButton";
 import Link from "next/link";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/config/constants";
+import { SITE_DESCRIPTION } from "@/config/constants";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
+  title: "$STREAMER",
   description: SITE_DESCRIPTION,
 };
 
@@ -43,9 +43,9 @@ export default function RootLayout({
             <header className="topnav">
               <div className="topnav-inner">
                 <Link href="/" className="brand">
-                  <span className="brand-mark">S</span>
-                  <span className="brand-name">{SITE_NAME.toLowerCase()}</span>
-                  <span className="brand-sub">.io</span>
+                  <span className="brand-logo">
+                    <img src="/streamer-nav-logo.png?v=3" alt="$STREAMER" />
+                  </span>
                 </Link>
 
                 <nav className="nav-tabs">

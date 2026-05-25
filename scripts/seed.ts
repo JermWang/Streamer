@@ -32,6 +32,7 @@ const SEED_CREATORS = [
     primary_handle: "KaiCenat",
     platform: "TWITCH",
     platform_url: "https://twitch.tv/kaicenat",
+    avatar_url: "https://unavatar.io/twitter/KaiCenat",
     bio: "Popular Twitch streamer and content creator.",
     token: {
       name: "Kai Cenat Community Coin",
@@ -48,6 +49,7 @@ const SEED_CREATORS = [
     primary_handle: "IShowSpeed",
     platform: "YOUTUBE",
     platform_url: "https://youtube.com/@ishowspeed",
+    avatar_url: "https://unavatar.io/twitter/IShowSpeed",
     bio: "High-energy YouTube streamer and content creator.",
     token: {
       name: "IShowSpeed Community Coin",
@@ -64,6 +66,7 @@ const SEED_CREATORS = [
     primary_handle: "xQc",
     platform: "KICK",
     platform_url: "https://kick.com/xqc",
+    avatar_url: "https://unavatar.io/twitter/xQc",
     bio: "xQc is a variety streamer known for his high-energy streams.",
     token: {
       name: "xQc Community Coin",
@@ -80,6 +83,7 @@ const SEED_CREATORS = [
     primary_handle: "AdinRoss",
     platform: "KICK",
     platform_url: "https://kick.com/adinross",
+    avatar_url: "https://unavatar.io/twitter/AdinRoss",
     bio: "Kick streamer and content creator.",
     token: {
       name: "Adin Ross Community Coin",
@@ -96,6 +100,7 @@ const SEED_CREATORS = [
     primary_handle: "CaseOh_",
     platform: "TWITCH",
     platform_url: "https://twitch.tv/caseoh_",
+    avatar_url: "https://unavatar.io/twitter/Caseoh__",
     bio: "Twitch streamer known for gaming and personality content.",
     token: {
       name: "CaseOh Community Coin",

@@ -35,8 +35,11 @@ function CreatorAvatar({
 }) {
   const [imgFailed, setImgFailed] = useState(false);
   const avClass = AVATAR_CLASS[creator.slug] ?? "av-default";
-  const twitterHandle = creator.primary_handle?.replace("@", "") ?? creator.slug;
-  const imgUrl = `https://unavatar.io/twitter/${twitterHandle}`;
+  const fallbackHandle = (creator.primary_handle ?? creator.slug)
+    .replace(/^@/, "")
+    .replace(/[^a-zA-Z0-9_]/g, "");
+  const imgUrl =
+    creator.avatar_url ?? `https://unavatar.io/twitter/${fallbackHandle}`;
   const initial = creator.name.charAt(0).toUpperCase();
 
   return (
