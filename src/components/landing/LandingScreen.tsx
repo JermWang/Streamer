@@ -402,7 +402,7 @@ function HeroBroadcast({ creators, events, stats, claimHref }: LandingScreenProp
             <div className="pwin-log">
               <div className="pw-section-label">
                 <span className="pw-led" style={{ background: "var(--cyan)" }} />
-                LIVE EVENTS - streamcoin indexer
+                LIVE EVENTS - $STREAMER indexer
                 <span style={{ marginLeft: "auto", color: "var(--t3)", fontFamily: "var(--font-mono)", fontSize: 10 }}>
                   TX/s 1.2
                 </span>
@@ -552,9 +552,9 @@ export function LandingScreen(props: LandingScreenProps) {
         <div className="land-footer-inner">
           <div>
             <div className="brand" style={{ marginBottom: 8 }}>
-              <span className="brand-mark">S</span>
-              <span className="brand-name">streamcoin</span>
-              <span className="brand-sub">.io</span>
+              <span className="brand-logo">
+                <img src="/streamer-nav-logo.png?v=3" alt="$STREAMER" />
+              </span>
             </div>
             <div style={{ fontSize: 11.5, color: "var(--t3)", maxWidth: 380, lineHeight: 1.6 }}>
               Streamcoin is an independent community onboarding hub for streamer

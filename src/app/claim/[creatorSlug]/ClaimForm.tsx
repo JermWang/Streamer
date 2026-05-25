@@ -587,12 +587,12 @@ export function ClaimForm({ creator, token }: ClaimFormProps) {
                 Verification phrase
               </label>
               <div className="code-box">
-                {`I am verifying my claim for streamcoin.io/creator/${creator.slug}`}
+                {`I am verifying my claim for $STREAMER/creator/${creator.slug}`}
                 <button
                   className="copy-btn"
                   onClick={() => {
                     navigator.clipboard.writeText(
-                      `I am verifying my claim for streamcoin.io/creator/${creator.slug}`
+                      `I am verifying my claim for $STREAMER/creator/${creator.slug}`
                     );
                     setCopied(true);
                     setTimeout(() => setCopied(false), 2000);

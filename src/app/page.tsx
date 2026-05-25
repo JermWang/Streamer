@@ -432,7 +432,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             textAlign: "center",
           }}
         >
-          streamcoin.io - claim your community coin before someone else does - all
+          $STREAMER - claim your community coin before someone else does - all
           tokens unofficial unless marked Verified - not financial advice
         </div>
       </div>
