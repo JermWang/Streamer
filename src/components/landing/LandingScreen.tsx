@@ -306,7 +306,7 @@ function HeroBroadcast({ creators, events, stats, claimHref }: LandingScreenProp
               Open onboarding board <ArrowRightIcon />
             </a>
             <a className="btn btn-secondary btn-lg" href={claimHref}>
-              Claim Pump.fun fees
+              How fee claims work
             </a>
           </div>
 

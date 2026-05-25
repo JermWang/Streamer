@@ -198,18 +198,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       creator.status === "CLAIM_REQUESTED"
   ).length;
   const hasCreators = allCreators.length > 0;
-  const claimCreator = allCreators.find(
-    (creator) =>
-      creator.status === "UNCLAIMED" ||
-      creator.status === "CLAIM_REQUESTED"
-  );
-
   return (
     <>
       <LandingScreen
         creators={toLandingCreators(allCreators)}
         events={toLandingEvents(allCreators)}
-        claimHref={claimCreator ? `/claim/${claimCreator.slug}` : "/admin"}
+        claimHref="#how-it-works"
         stats={{
           totalCreators: allCreators.length,
           liveTokens: liveCount,
@@ -354,7 +348,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               alignSelf: "start",
             }}
           >
-            <div className="module">
+            <div id="how-it-works" className="module">
               <div className="module-head">
                 <div className="module-title">How this works</div>
               </div>
@@ -385,12 +379,12 @@ export default async function HomePage({ searchParams }: HomePageProps) {
                     lineHeight: 1.6,
                   }}
                 >
-                  Streamcoin is the last step:{" "}
+                  $STREAMER is the easy routing layer:{" "}
                   <strong style={{ color: "var(--accent)" }}>
-                    the creator claims the fees
+                    every live coin links straight to Pump.fun
                   </strong>{" "}
-                  and, if they want, adds Pump.fun as a platform they stream to,
-                  all without leaving Twitch or Kick.
+                  once launched. Creators claim eligible fees through Pump.fun, and
+                  this site keeps the community page, proof, and raid links organized.
                 </p>
                 <p
                   style={{
@@ -408,15 +402,15 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             <div className="claim-cta">
               <h4>Your community already did the hard part.</h4>
               <p>
-                They built the token and the momentum. The last step is yours:
-                claim the fees and optionally add Pump.fun as another platform you
-                stream to. Takes 5 minutes.
+                They built the token and the momentum. Once the Pump.fun coin is
+                live, this page points people directly to that coin and explains
+                how creators verify and claim eligible fees through Pump.fun.
               </p>
-              <a href={claimCreator ? `/claim/${claimCreator.slug}` : "/admin"} className="btn btn-primary btn-sm btn-flex">
-                Claim your page -&gt;
+              <a href="#how-it-works" className="btn btn-primary btn-sm btn-flex">
+                How it works -&gt;
               </a>
               <div style={{ marginTop: 8, fontSize: 11, color: "var(--t3)" }}>
-                Works alongside Twitch, Kick, YouTube - not instead of them
+                Pump.fun links will go directly to each live coin once added
               </div>
             </div>
           </aside>
