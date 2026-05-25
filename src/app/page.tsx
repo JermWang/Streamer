@@ -5,9 +5,15 @@ import {
   type LandingCreator,
   type LandingEvent,
 } from "@/components/landing/LandingScreen";
+import { MainCoinCard } from "@/components/ui/MainCoinCard";
 import { SocialProof } from "@/components/ui/SocialProof";
 import { TokenCard } from "@/components/ui/TokenCard";
 import { TwoPaths } from "@/components/ui/TwoPaths";
+import {
+  fetchDexscreenerMetrics,
+  getDexscreenerUrl,
+  getPumpFunUrl,
+} from "@/lib/metrics/dexscreener";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { Creator, CommunityToken } from "@/types/db";
 
@@ -51,6 +57,17 @@ async function getPendingClaimCount(): Promise<number> {
   }
 
   return count ?? 0;
+}
+
+async function getMainCoinData() {
+  const mintAddress = process.env.NEXT_PUBLIC_STREAMER_MINT_ADDRESS?.trim() ?? "";
+  const pumpUrl =
+    process.env.NEXT_PUBLIC_STREAMER_PUMP_URL?.trim() ||
+    (mintAddress ? getPumpFunUrl(mintAddress) : "");
+  const chartUrl = mintAddress ? getDexscreenerUrl(mintAddress) : "";
+  const metrics = mintAddress ? await fetchDexscreenerMetrics(mintAddress) : null;
+
+  return { mintAddress, pumpUrl, chartUrl, metrics };
 }
 
 interface HomePageProps {
@@ -179,9 +196,10 @@ function toLandingEvents(creators: CreatorWithToken[]): LandingEvent[] {
 export default async function HomePage({ searchParams }: HomePageProps) {
   const { filter } = await searchParams;
   const creators = await getCreatorsWithTokens(filter);
-  const [allCreators, pendingClaimCount] = await Promise.all([
+  const [allCreators, pendingClaimCount, mainCoin] = await Promise.all([
     filter ? getCreatorsWithTokens() : Promise.resolve(creators),
     getPendingClaimCount(),
+    getMainCoinData(),
   ]);
 
   const liveCount = allCreators.filter(
@@ -213,6 +231,13 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       />
 
       <div id="dashboard" className="page">
+        <MainCoinCard
+          pumpUrl={mainCoin.pumpUrl}
+          mintAddress={mainCoin.mintAddress}
+          chartUrl={mainCoin.chartUrl}
+          metrics={mainCoin.metrics}
+        />
+
         <TwoPaths />
 
         <SocialProof />
