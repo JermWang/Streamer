@@ -25,7 +25,24 @@ const supabase = createClient(supabaseUrl, serviceRoleKey, {
   realtime: { transport: WebSocket as unknown as WebSocketLikeConstructor },
 });
 
-const SEED_CREATORS = [
+type SeedCreator = {
+  name: string;
+  slug: string;
+  primary_handle: string;
+  platform: string;
+  platform_url: string;
+  avatar_url: string | null;
+  bio: string;
+  token: {
+    name: string;
+    ticker: string;
+    description: string;
+    slug: string;
+    launch_status: string;
+  };
+};
+
+const SEED_CREATORS: SeedCreator[] = [
   {
     name: "Kai Cenat",
     slug: "kai-cenat",
@@ -91,6 +108,108 @@ const SEED_CREATORS = [
       description:
         "Unofficial community token named after Adin Ross. Not affiliated with, endorsed by, sponsored by, or controlled by Adin Ross unless marked Verified.",
       slug: "adin-ross-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "Clavicular",
+    slug: "clavicular",
+    primary_handle: "clavicular",
+    platform: "KICK",
+    platform_url: "https://kick.com/clavicular",
+    avatar_url: null,
+    bio: "Kick streamer and content creator.",
+    token: {
+      name: "Clavicular Community Coin",
+      ticker: "CLAV",
+      description:
+        "Unofficial community token named after Clavicular. Not affiliated with, endorsed by, sponsored by, or controlled by Clavicular unless marked Verified.",
+      slug: "clavicular-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "Trainwreckstv",
+    slug: "trainwreckstv",
+    primary_handle: "trainwreckstv",
+    platform: "KICK",
+    platform_url: "https://kick.com/trainwreckstv",
+    avatar_url: null,
+    bio: "Kick streamer and host of the Scuffed Podcast.",
+    token: {
+      name: "Trainwreckstv Community Coin",
+      ticker: "TRAIN",
+      description:
+        "Unofficial community token named after Trainwreckstv. Not affiliated with, endorsed by, sponsored by, or controlled by Trainwreckstv unless marked Verified.",
+      slug: "trainwreckstv-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "N3on",
+    slug: "n3on",
+    primary_handle: "n3on",
+    platform: "KICK",
+    platform_url: "https://kick.com/n3on",
+    avatar_url: null,
+    bio: "Kick streamer and content creator.",
+    token: {
+      name: "N3on Community Coin",
+      ticker: "N3ON",
+      description:
+        "Unofficial community token named after N3on. Not affiliated with, endorsed by, sponsored by, or controlled by N3on unless marked Verified.",
+      slug: "n3on-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "Westcol",
+    slug: "westcol",
+    primary_handle: "westcol",
+    platform: "KICK",
+    platform_url: "https://kick.com/westcol",
+    avatar_url: null,
+    bio: "Kick streamer and content creator.",
+    token: {
+      name: "Westcol Community Coin",
+      ticker: "WEST",
+      description:
+        "Unofficial community token named after Westcol. Not affiliated with, endorsed by, sponsored by, or controlled by Westcol unless marked Verified.",
+      slug: "westcol-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "Ac7ionMan",
+    slug: "ac7ionman",
+    primary_handle: "ac7ionman",
+    platform: "KICK",
+    platform_url: "https://kick.com/ac7ionman",
+    avatar_url: null,
+    bio: "Kick streamer and content creator.",
+    token: {
+      name: "Ac7ionMan Community Coin",
+      ticker: "AC7ION",
+      description:
+        "Unofficial community token named after Ac7ionMan. Not affiliated with, endorsed by, sponsored by, or controlled by Ac7ionMan unless marked Verified.",
+      slug: "ac7ionman-coin",
+      launch_status: "DRAFT",
+    },
+  },
+  {
+    name: "Fousey",
+    slug: "fousey",
+    primary_handle: "fousey",
+    platform: "KICK",
+    platform_url: "https://kick.com/fousey",
+    avatar_url: null,
+    bio: "Kick streamer and content creator.",
+    token: {
+      name: "Fousey Community Coin",
+      ticker: "FOUSEY",
+      description:
+        "Unofficial community token named after Fousey. Not affiliated with, endorsed by, sponsored by, or controlled by Fousey unless marked Verified.",
+      slug: "fousey-coin",
       launch_status: "DRAFT",
     },
   },
