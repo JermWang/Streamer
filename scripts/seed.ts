@@ -5,8 +5,10 @@
  * Requires SUPABASE_SERVICE_ROLE_KEY and NEXT_PUBLIC_SUPABASE_URL in .env.local
  */
 import { createClient } from "@supabase/supabase-js";
+import type { WebSocketLikeConstructor } from "@supabase/realtime-js";
 import * as dotenv from "dotenv";
 import { join } from "path";
+import WebSocket from "ws";
 
 dotenv.config({ path: join(process.cwd(), ".env.local") });
 
@@ -18,7 +20,10 @@ if (!supabaseUrl || !serviceRoleKey) {
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, serviceRoleKey);
+const supabase = createClient(supabaseUrl, serviceRoleKey, {
+  auth: { autoRefreshToken: false, persistSession: false },
+  realtime: { transport: WebSocket as unknown as WebSocketLikeConstructor },
+});
 
 const SEED_CREATORS = [
   {

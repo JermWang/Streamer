@@ -4,7 +4,7 @@ import { verifyAdminRequest } from "@/lib/auth/admin-guard";
 import { AttachMintSchema, UpdateTokenSchema } from "@/lib/validation/schemas";
 import { getLaunchProvider } from "@/lib/launch";
 import { generateTokenMetadata } from "@/lib/metadata/generator";
-import { getServerEnv } from "@/config/env";
+import { getSiteEnv } from "@/config/env";
 import { PUMP_FUN_BASE_URL } from "@/config/constants";
 
 type Params = { params: Promise<{ id: string }> };
@@ -81,7 +81,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       return NextResponse.json({ error: `Token is not in DRAFT state (current: ${tokenRecord.launch_status})` }, { status: 409 });
     }
 
-    const env = getServerEnv();
+    const env = getSiteEnv();
     const provider = getLaunchProvider();
 
     if (provider.name === "MANUAL") {

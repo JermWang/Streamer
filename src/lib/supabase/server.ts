@@ -1,10 +1,15 @@
 import { createServerClient } from "@supabase/ssr";
+import type { WebSocketLikeConstructor } from "@supabase/realtime-js";
 import { cookies } from "next/headers";
+import WebSocket from "ws";
 import { publicEnv } from "@/config/env";
+
+const websocketTransport = WebSocket as unknown as WebSocketLikeConstructor;
 
 export async function createClient() {
   const cookieStore = await cookies();
   return createServerClient(publicEnv.supabaseUrl, publicEnv.supabaseAnonKey, {
+    realtime: { transport: websocketTransport },
     cookies: {
       getAll() {
         return cookieStore.getAll();

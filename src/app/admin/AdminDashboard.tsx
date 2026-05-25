@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { SafeWalletMultiButton } from "@/components/wallet/WalletButton";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { AdminCreatorForm } from "./AdminCreatorForm";
 import { AdminTokenForm } from "./AdminTokenForm";
@@ -88,7 +88,7 @@ export function AdminDashboard({
             >
               Connect your admin wallet to access the dashboard.
             </p>
-            <WalletMultiButton
+            <SafeWalletMultiButton
               style={{
                 background: "var(--accent)",
                 color: "var(--accent-ink)",

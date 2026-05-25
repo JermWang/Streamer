@@ -3,7 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { verifyWalletSignature } from "@/lib/auth/wallet";
 import { CreateClaimSchema } from "@/lib/validation/schemas";
 import { generateVerificationCode, buildVerificationPhrase } from "@/lib/metadata/generator";
-import { getServerEnv } from "@/config/env";
+import { getSiteEnv } from "@/config/env";
 
 export async function POST(req: NextRequest) {
   try {
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     }
 
     const input = parsed.data;
-    const env = getServerEnv();
+    const env = getSiteEnv();
     const supabase = createAdminClient();
 
     // Verify wallet signature

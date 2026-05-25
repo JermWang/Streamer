@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { SafeWalletMultiButton } from "@/components/wallet/WalletButton";
 import bs58 from "bs58";
 import { buildSignInMessage, generateNonce } from "@/lib/auth/wallet";
 import type { Creator, CommunityToken } from "@/types/db";
@@ -409,7 +409,7 @@ export function ClaimForm({ creator, token }: ClaimFormProps) {
                   paddingBottom: 8,
                 }}
               >
-                <WalletMultiButton
+                <SafeWalletMultiButton
                   style={{
                     background: "var(--accent)",
                     color: "var(--accent-ink)",
