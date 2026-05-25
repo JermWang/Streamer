@@ -2062,11 +2062,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-ui); }
 
 /* ===== Marquee ===== */
 .land-marquee {
-  position: relative; margin: 24px 0; overflow: hidden;
+  position: relative; margin: 8px 0 24px; overflow-x: hidden; overflow-y: visible;
+  padding: 16px 0 8px;
   display: flex; flex-direction: column; gap: 14px; z-index: 1;
 }
 .marquee-fade-l, .marquee-fade-r {
-  position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+  position: absolute; top: 16px; bottom: 8px; width: 120px; z-index: 2; pointer-events: none;
 }
 .marquee-fade-l { left: 0; background: linear-gradient(to right, var(--bg-1), transparent); }
 .marquee-fade-r { right: 0; background: linear-gradient(to left, var(--bg-1), transparent); }
